@@ -1,0 +1,19 @@
+pipeline {
+    agent { 
+        ecs {
+            inheritFrom 'amazonlinux'
+            cpu 1024
+            assignPublicIp true
+            cloud 'ecs'
+            label 'demopipeline'
+        } 
+    }
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
+}
